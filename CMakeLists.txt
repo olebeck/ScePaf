@@ -78,15 +78,14 @@ foreach(library ${SCEPAF_LIBRARIES})
 endforeach()
 
 add_custom_target(
-    ScePaf_stubs_generation
-    DEPENDS ${SCEPAF_STUBS}
-)
-
-add_custom_target(
-    paf_includes_copy
+    paf_includes_copy ALL
     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/include/paf.h
 )
 
+add_custom_target(
+    paf_stubs_gen ALL
+    DEPENDS ${SCEPAF_STUBS}
+)
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/package")
 
@@ -102,15 +101,15 @@ endforeach()
 set(SCEPAF_PACKAGE_NAME ScePaf)
 set(SCEPAF_PACKAGE_VERSION "1.0.0")
 configure_file(
-    ${CMAKE_CURRENT_LIST_DIR}/ScePafConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/ScePafConfig.cmake @ONLY
+    ${CMAKE_CURRENT_LIST_DIR}/PackageCMakeLists.txt.in
+    ${CMAKE_CURRENT_BINARY_DIR}/CMakeLists.txt @ONLY
 )
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/ScePafConfig.cmake" DESTINATION share/${SCEPAF_PACKAGE_NAME}-${SCEPAF_PACKAGE_VERSION})
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/CMakeLists.txt" DESTINATION .)
 
 set(CPACK_GENERATOR "ZIP")
 set(CPACK_ARCHIVE_FILE_NAME "${SCEPAF_PACKAGE_NAME}-${SCEPAF_PACKAGE_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "${CPACK_ARCHIVE_FILE_NAME}")
 set(CPACK_INSTALL_DIRECTORY ${CMAKE_INSTALL_PREFIX})
-set(CPACK_STRIP_TOPLEVEL_DIRECTORY FALSE)
+set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY OFF)
 
 include(CPack)
