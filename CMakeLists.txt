@@ -18,7 +18,7 @@ FetchContent_Declare(
     GIT_TAG "b76d6ae00516b107d37e7e8a1a16211e3b729a07"
     UPDATE_DISCONNECTED TRUE
     EXCLUDE_FROM_ALL
-    PATCH_COMMAND patch -p2 < ${CMAKE_CURRENT_LIST_DIR}/ScePaf.patch
+    PATCH_COMMAND patch -p2 -i "${CMAKE_CURRENT_LIST_DIR}/ScePaf.patch"
 )
 
 FetchContent_MakeAvailable(ScePaf_RE)
