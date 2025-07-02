@@ -61,7 +61,7 @@ foreach(library ${SCEPAF_LIBRARIES})
         OUTPUT "${yml}"
         DEPENDS "${emd}"
         COMMAND python3 ${CMAKE_CURRENT_LIST_DIR}/emd2yml.py "${yml}" "${emd}"
-        COMMENT emd2yml ${library}
+        COMMENT "emd2yml ${library}"
     )
     add_custom_command(
         OUTPUT "${stub}" "${stub_weak}"
@@ -72,7 +72,7 @@ foreach(library ${SCEPAF_LIBRARIES})
         COMMAND cp "build/lib${library}_stub.a" "${stub}"
         COMMAND cp "build/lib${library}_stub_weak.a" "${stub_weak}"
         WORKING_DIRECTORY ${libbuilddir}
-        COMMENT vita-libs-gen ${library}
+        COMMENT "vita-libs-gen ${library}"
     )
     list(APPEND SCEPAF_STUBS ${stub})
 endforeach()
