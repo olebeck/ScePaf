@@ -8,7 +8,7 @@ how to use:
 include(FetchContent)
 FetchContent_Declare(
     ScePaf_External
-    URL https://yuv.pink/ScePaf-1.0.0.zip
+    URL https://github.com/olebeck/ScePaf/releases/download/continuous/ScePaf-1.0.0.zip
 )
 FetchContent_MakeAvailable(ScePaf_External)
 
