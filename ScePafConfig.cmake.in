@@ -1,0 +1,50 @@
+if(__SCEPAF_CONFIG_INCLUDED)
+    return()
+endif()
+set(__SCEPAF_CONFIG_INCLUDED TRUE)
+
+get_filename_component(SCEPAF_PACKAGE_ROOT "${CMAKE_CURRENT_LIST_DIR}" ABSOLUTE)
+
+
+set(SCEPAF_LIBRARIES_LIST
+    ScePafCommon
+    ScePafThread
+    ScePafAutoTestTty
+    ScePafMisc
+    ScePafLowlayer
+    ScePafWidget
+    ScePafStdc
+    ScePafGraphics
+    ScePafResource
+    ScePafToplevel
+    SceAppSettings
+    SceCommonGuiDialog
+    ScePafWebMapView
+    SceWebUIPlugin
+)
+
+foreach(library ${SCEPAF_LIBRARIES_LIST})
+    set(stub_path "${SCEPAF_PACKAGE_ROOT}/lib/lib${library}_stub.a")
+    set(stub_weak_path "${SCEPAF_PACKAGE_ROOT}/lib/lib${library}_stub_weak.a")
+    add_library(${library}_stub STATIC IMPORTED GLOBAL)
+    set_target_properties(${library}_stub PROPERTIES
+        IMPORTED_LOCATION "${stub_path}"
+        INTERFACE_INCLUDE_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/include"
+        INTERFACE_LINK_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/lib"
+        INTERFACE_COMPILE_OPTIONS "-include ${SCEPAF_PACKAGE_ROOT}/include/paf/declspec.h"
+    )
+    add_library(${library}_stub_weak STATIC IMPORTED GLOBAL)
+    set_target_properties(${library}_stub_weak PROPERTIES
+        IMPORTED_LOCATION "${stub_weak_path}"
+        INTERFACE_INCLUDE_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/include"
+        INTERFACE_LINK_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/lib"
+        INTERFACE_COMPILE_OPTIONS "-include ${SCEPAF_PACKAGE_ROOT}/include/paf/declspec.h"
+    )
+endforeach()
+
+set(SCEPAF_ALL_STUBS)
+foreach(lib ${SCEPAF_LIBRARIES_LIST})
+    list(APPEND SCEPAF_ALL_STUBS ${lib}_stub)
+endforeach()
+
+set(SCEPAF_INCLUDE_DIR "${SCEPAF_PACKAGE_ROOT}/include")
