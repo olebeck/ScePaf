@@ -23,6 +23,8 @@ jobs:
           echo "PATH=$VITASDK/bin:$PATH" >> $GITHUB_ENV
           #./install-all.sh
 
+      - uses: actions/checkout@v4
+
       - name: Configure
         run: cmake -S . -B build
       
