@@ -2,11 +2,9 @@ include(ExternalProject)
 
 if(NOT TARGET psp2cxml_tool)
     ExternalProject_Add(psp2cxml_tool
-        GIT_REPOSITORY https://github.com/olebeck/psp2cxml-tool
+        GIT_REPOSITORY https://github.com/Princess-of-Sleeping/psp2cxml-tool
         CMAKE_ARGS
             -DCMAKE_BUILD_TYPE=Release
-            -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/tools
-        BUILD_ALWAYS 1
         INSTALL_COMMAND ""
         UPDATE_DISCONNECTED TRUE
     )
