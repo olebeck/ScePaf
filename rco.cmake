@@ -8,6 +8,7 @@ if(NOT TARGET psp2cxml_tool)
             -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}/tools
         BUILD_ALWAYS 1
         INSTALL_COMMAND ""
+        UPDATE_DISCONNECTED TRUE
     )
 
     ExternalProject_Get_Property(psp2cxml_tool BINARY_DIR)
