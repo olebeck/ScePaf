@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25...4.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.22...4.0 FATAL_ERROR)
 
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   if(DEFINED ENV{VITASDK})
