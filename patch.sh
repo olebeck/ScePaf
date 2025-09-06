@@ -1,3 +1,6 @@
 set -e
-patch -p2 -i "${CMAKE_CURRENT_LIST_DIR}/ScePaf.patch";
-patch -p1 -i "${CMAKE_CURRENT_LIST_DIR}/ScePaf-appsettings.patch";
+
+SCRIPT_DIR=$(dirname "$0")
+
+patch -p2 -i "${SCRIPT_DIR}/ScePaf.patch";
+patch -p1 -i "${SCRIPT_DIR}/ScePaf-appsettings.patch";

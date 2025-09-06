@@ -18,7 +18,7 @@ FetchContent_Declare(
     GIT_TAG "b76d6ae00516b107d37e7e8a1a16211e3b729a07"
     UPDATE_DISCONNECTED TRUE
     EXCLUDE_FROM_ALL
-    PATCH_COMMAND CMAKE_CURRENT_LIST_DIR=${CMAKE_CURRENT_LIST_DIR} /usr/bin/env bash ${CMAKE_CURRENT_LIST_DIR}/patch.sh
+    PATCH_COMMAND bash ${CMAKE_CURRENT_LIST_DIR}/patch.sh
 )
 
 FetchContent_MakeAvailable(ScePaf_RE)
