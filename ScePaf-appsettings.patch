@@ -1,3 +1,15 @@
+diff --git a/include/paf/std/wchar.h b/include/paf/std/wchar.h
+index c2cdd20..9289b98 100644
+--- a/include/paf/std/wchar.h
++++ b/include/paf/std/wchar.h
+@@ -6,6 +6,7 @@
+ #define _VDSUITE_USER_PAF_STD_WCHAR_H
+ 
+ #include <../../wchar.h>
++#include <stdarg.h>
+ 
+ #ifdef __cplusplus
+ extern "C" {
 diff --git a/lib/SceAppSettings.emd b/lib/SceAppSettings.emd
 index 5ddb992..6b6ccc9 100644
 --- a/lib/SceAppSettings.emd
