@@ -47,7 +47,6 @@ add_custom_command(
     COMMAND cp -r ${scepaf_re_SOURCE_DIR}/include/ ${CMAKE_CURRENT_BINARY_DIR}
     COMMAND cp ${CMAKE_CURRENT_LIST_DIR}/include/map ${CMAKE_CURRENT_BINARY_DIR}/include/paf/std/map
     COMMAND cp ${CMAKE_CURRENT_LIST_DIR}/include/math.h ${CMAKE_CURRENT_BINARY_DIR}/include/paf/math/math.h
-    COMMAND cp ${CMAKE_CURRENT_LIST_DIR}/include/declspec.h ${CMAKE_CURRENT_BINARY_DIR}/include/paf/declspec.h
 )
 
 foreach(library ${SCEPAF_LIBRARIES})

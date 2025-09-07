@@ -21,8 +21,6 @@ set(SCEPAF_LIBRARIES_LIST
     SceWebUIPlugin
 )
 
-set(include_declspec "SHELL:-include paf/declspec.h")
-
 foreach(library ${SCEPAF_LIBRARIES_LIST})
     set(stub_path "${SCEPAF_PACKAGE_ROOT}/lib/lib${library}_stub.a")
     set(stub_weak_path "${SCEPAF_PACKAGE_ROOT}/lib/lib${library}_stub_weak.a")
@@ -31,14 +29,12 @@ foreach(library ${SCEPAF_LIBRARIES_LIST})
         IMPORTED_LOCATION "${stub_path}"
         INTERFACE_INCLUDE_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/include"
         INTERFACE_LINK_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/lib"
-        INTERFACE_COMPILE_OPTIONS ${include_declspec}
     )
     add_library(${library}_stub_weak STATIC IMPORTED GLOBAL)
     set_target_properties(${library}_stub_weak PROPERTIES
         IMPORTED_LOCATION "${stub_weak_path}"
         INTERFACE_INCLUDE_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/include"
         INTERFACE_LINK_DIRECTORIES "${SCEPAF_PACKAGE_ROOT}/lib"
-        INTERFACE_COMPILE_OPTIONS ${include_declspec}
     )
 endforeach()
 

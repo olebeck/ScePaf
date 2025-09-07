@@ -1,3 +1,18 @@
+diff --git a/include/paf/paf_types.h b/include/paf/paf_types.h
+index 74286a6..951b24f 100644
+--- a/include/paf/paf_types.h
++++ b/include/paf/paf_types.h
+@@ -11,6 +11,10 @@
+ extern "C" {
+ #endif
+ 
++#ifndef __declspec
++#define __declspec(__v__)
++#endif
++
+ // typedef int64_t off_t;
+ 
+ typedef enum ImageMode {
 diff --git a/include/paf/std/wchar.h b/include/paf/std/wchar.h
 index c2cdd20..9289b98 100644
 --- a/include/paf/std/wchar.h
