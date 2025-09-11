@@ -1,3 +1,16 @@
+diff --git a/include/app_settings.h b/include/app_settings.h
+index 3417c5f..e33d531 100644
+--- a/include/app_settings.h
++++ b/include/app_settings.h
+@@ -7,7 +7,7 @@
+ 
+ #include <stdint.h>
+ #include <stddef.h>
+-#include <scetypes.h>
++#include <psp2/types.h>
+ #include <paf.h>
+ 
+ namespace sce {
 diff --git a/include/paf/paf_types.h b/include/paf/paf_types.h
 index 74286a6..951b24f 100644
 --- a/include/paf/paf_types.h
