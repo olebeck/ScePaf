@@ -15,10 +15,10 @@ include(FetchContent)
 FetchContent_Declare(
     ScePaf_RE
     GIT_REPOSITORY "https://github.com/GrapheneCt/ScePaf-RE"
-    GIT_TAG "b76d6ae00516b107d37e7e8a1a16211e3b729a07"
+    GIT_TAG "7b1d3b6aca81131fd90c65b81f317909e4feda1c"
     UPDATE_DISCONNECTED TRUE
     EXCLUDE_FROM_ALL
-    PATCH_COMMAND bash ${CMAKE_CURRENT_LIST_DIR}/patch.sh
+    PATCH_COMMAND patch -p1 -i "${CMAKE_CURRENT_LIST_DIR}/ScePaf.patch"
 )
 
 FetchContent_MakeAvailable(ScePaf_RE)
@@ -45,8 +45,6 @@ file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib)
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/include/paf.h
     COMMAND cp -r ${scepaf_re_SOURCE_DIR}/include/ ${CMAKE_CURRENT_BINARY_DIR}
-    COMMAND cp ${CMAKE_CURRENT_LIST_DIR}/include/map ${CMAKE_CURRENT_BINARY_DIR}/include/paf/std/map
-    COMMAND cp ${CMAKE_CURRENT_LIST_DIR}/include/math.h ${CMAKE_CURRENT_BINARY_DIR}/include/paf/math/math.h
 )
 
 foreach(library ${SCEPAF_LIBRARIES})
